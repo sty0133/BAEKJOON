@@ -7,6 +7,7 @@ N_num.sort()
 M = int(read().rstrip())
 M_num = list(map(int, read().split()))
 
+#이진탐색
 for num in M_num:
     first, last = 0, N - 1
     find = False
