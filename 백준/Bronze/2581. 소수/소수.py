@@ -1,35 +1,24 @@
 import sys
 read = sys.stdin.readline
 
-m = int(read())
-n = int(read())
+m = int(read().rstrip())
+n = int(read().rstrip())
+primenum = []
 
-
-def prime_num(min,max):
-
-    temp = []
-
-
-    for i in range(min, max+1):
-        check = True
-        if i > 1:
-            for j in range(2, i):
-                if i % j == 0:
-                    check = False
-
-            if check == True:
-                temp.append(i)
-
-    return temp
-
-
-result = prime_num(m,n)
-
-if len(result) == 0:
+for i in range(m,n+1):
+    count = 0
+    if i > 1:
+        # primenum.append(i)
+        for j in range(2,i):
+            if i % j == 0:
+                count = 1
+                break
+        if count == 0:
+            primenum.append(i)
+# print(primenum)
+if len(primenum) == 0:
     print(-1)
-    exit(0)
-
 else:
-    p_sum = sum(result)
-    p_min = min(result)
-    print("{}\n{}".format(p_sum,p_min))
+    print(sum(primenum))
+    print(min(primenum))
+
